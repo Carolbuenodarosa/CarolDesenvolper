@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    body {
+        padding: 0;
+    }
+
+    .navbar {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .nav-link {
+        font-weight: 500;
+        color: #1f2933;
+    }
+
+    .nav-link:hover {
+        color: #0d6efd;
+    }
+
+    .hero-section {
+        background: #f6f9fc;
+        padding: 100px 0;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #1f2d3d;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        color: #6c757d;
+        margin-top: 20px;
+        max-width: 500px;
+    }
+
+    .hero-carousel-img {
+        max-height: 420px;
+        object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+
+    }
+
+    @media (max-width: 991px) {
+        .hero-section .btn {
+            display: inline-block;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .hero-section {
+            padding: 60px 0;
+        }
+
+        .hero-carousel-img {
+            max-height: 260px;
+            margin-top: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            display: none;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    @media (max-width: 991px) {
+        .navbar {
+            background: #ffffff !important;
+            backdrop-filter: none !important;
+        }
+    }
+
+    .parcerias {
+        background: #f5f7fa;
+        padding: 80px 0;
+    }
+
+    .titulo-secao {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #1f3c88;
+    }
+
+    .grid-parcerias {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+
+    .card-parceria {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-parceria:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-parceria h3 {
+        font-size: 1.1rem;
+        color: #222;
+        margin-bottom: 20px;
+    }
+
+    .card-parceria a {
+        color: #2f66ff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .card-parceria a:hover {
+        text-decoration: underline;
+    }
+
+    .logo-parceria {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .logo-parceria img {
+        max-height: 100%;
+        max-width: 140px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: 0.3s;
+    }
+
+    .card-parceria:hover .logo-parceria img {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: #ffffff;
+        padding: 80px 0;
+    }
+
+    .hero small {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .hero .highlight {
+        color: #6c4cff;
+        font-weight: 700;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #6c4cff;
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 30px;
+    }
+
+    .hero ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .hero ul li {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .hero ul li::before {
+        content: "✔";
+        color: #22c55e;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .btn-hero {
+        background: #111;
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn-hero:hover {
+        background: #333;
+        color: #fff;
+    }
+
+    .refund {
+        margin-top: 15px;
+        color: #555;
+        font-size: 15px;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">CAROLINI</a>
+        </div>
+    </nav>
+    <style>
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #6f8ca7;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .check-list li {
+            list-style: none;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .check-list i {
+            color: #3da061;
+            margin-right: 10px;
+        }
+
+        .btn-hero {
+            background: #111;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* MOCKUP */
+        .mockup {
+            position: relative;
+        }
+
+        .editor {
+            background: #0b1e3b;
+            border-radius: 18px;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .toolbar i {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        /* VIDEO GRANDE */
+        .site-preview {
+            width: 100%;
+            height: 420px;
+        }
+
+        @media (max-width: 991px) {
+            .site-preview {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .site-preview {
+                height: 220px;
+            }
+        }
+
+        .site-preview video {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            object-fit: cover;
+        }
+
+        /* CARD FLUTUANTE */
+        .floating-card {
+            position: absolute;
+            bottom: -40px;
+            left: 40px;
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            width: 280px;
+        }
+
+        .floating-card h6 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .floating-card button {
+            background: #554d79;
+            border: none;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .highlight-bar {
+            position: absolute;
+            bottom: -20px;
+            right: -30px;
+            width: 200px;
+            height: 20px;
+            background: #c6ff00;
+            border-radius: 20px;
+        }
+
+        /* HERO RESPONSIVO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        @media (max-width: 991px) {
+            .hero {
+                padding: 60px 0;
+                text-align: center;
+            }
+
+            .hero .row {
+                flex-direction: column-reverse;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn-hero {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+
+        .logo-swap {
+            position: relative;
+            width: 160px;
+            height: 50px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            animation: swap 6s infinite;
+        }
+
+        .logo-2 {
+            animation-delay: 3s;
+        }
+
+        @keyframes swap {
+            0% {
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .logo-carousel {
+            background: #f8fafc;
+            padding: 40px 0;
+            overflow: hidden;
+        }
+
+        .logo-track {
+            display: flex;
+            gap: 60px;
+            animation: scroll 20s linear infinite;
+            width: max-content;
+        }
+
+        .logo-track img {
+            height: 50px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .logo-track img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .hero-section {
+            width: 100%;
+            min-height: 80vh;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Texto */
+        .hero-text {
+            width: 50%;
+            padding: 80px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #215ea0;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        /* Imagem com corte */
+        .hero-image {
+            width: 50%;
+            position: relative;
+            clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsivo */
+        @media (max-width: 900px) {
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-text,
+            .hero-image {
+                width: 100%;
+                padding: 40px;
+            }
+
+            .hero-image {
+                clip-path: none;
+            }
+        }
+
+        .footer {
+            background: linear-gradient(180deg, #050b1e, #0b1330);
+            color: #fff;
+            padding: 60px 20px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.8rem;
+            color: #8e8ace;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #6c63ff;
+        }
+
+        .social {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social a {
+            font-size: 1.4rem;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            color: #6c63ff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social {
+                justify-content: center;
+            }
+        }
+
+        .stats-section {
+            background: linear-gradient(180deg, #0b1330, #050b1e);
+            padding: 120px 20px 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stats-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 60px;
+            display: flex;
+            gap: 80px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            max-width: 1100px;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat h3 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: #0b1330;
+        }
+
+        .stat p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .icon {
+            background: #e6ecf7;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0b1330;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .stats-card {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .stat {
+                justify-content: center;
+            }
+        }
+
+        .brands {
+            background: hsl(0, 0%, 100%);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .brands h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #0b1330;
+        }
+
+        .brands-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .brands-logos img {
+            max-width: 120px;
+            opacity: 0.8;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+
+        .brands-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            .brands-logos {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+
+        .solutions {
+            background: #b0d2ff;
+            padding: 80px 20px;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+
+        .solutions .tag {
+            color: #3d3f97;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .solutions h2 {
+            font-size: 2.5rem;
+            color: #2f47ff;
+            margin: 10px 0 60px;
+        }
+
+        .solutions-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .solutions-text {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo-circle {
+            width: 35px;
+            height: 35px;
+            background: #2f47ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .solutions-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .solutions-text p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 55px;
+        }
+
+        .badges span {
+            border: 1px solid #35723d;
+            color: #335733;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .solutions-image img {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .solutions-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .solutions-text {
+                text-align: center;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            .badges {
+                justify-content: center;
+            }
+        }
+
+
+        .container {
+            max-width: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .numero {
+            background: #7574da;
+            color: rgb(255, 255, 255);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .texto h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .texto p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #4b4b4b;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">CAROLINI</a>
+
+            <a href="https://wa.me/5546999834088?text=ol%C3%A1%20gostaria%20de%20saber%20mais%20sobre%20os%20sites."
+                class="btn btn-outline-primary">
+                Entrar em contato
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- TEXTO -->
+                <div class="col-md-6">
+                    <small><strong>Até <span style="color:#6c4cff">85% off</span></strong> Peça seu site agora
+                        mesmo</small>
+
+                    <h1 class="mt-3">
+                        Desenvolvedora de Site
+                    </h1>
+
+                    <h2>De acordo com seu gosto.</h2>
+
+                    <ul class="check-list p-0">
+                        <li><i class="bi bi-check-circle-fill"></i>Designer personalizado</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Criação de site</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Hospedagem e domínio</li>
+                    </ul>
+
+                    <a href="https://wa.me/5546999834088?text=ol%C3%A1%20gostaria%20de%20saber%20mais%20sobre%20os%20sites."
+                        class="btn-hero">Entre em contato</a>
+                </div>
+
+                <!-- VIDEO -->
+                <div class="col-md-6">
+                    <div class="mockup">
+
+                        <div class="editor">
+                            <div class="toolbar">
+                                <i class="bi bi-plus-circle"></i>
+                                <i class="bi bi-stack"></i>
+                                <i class="bi bi-cursor"></i>
+                                <i class="bi bi-stars"></i>
+                                <i class="bi bi-three-dots"></i>
+                            </div>
+
+                            <div class="site-preview">
+                                <video autoplay loop muted playsinline>
+                                    <source src="27706-365890968_small.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="floating-card">
+                            <h6>Ficou curioso?</h6>
+                            <p class="small text-muted">
+                                Entre em contato para saber mais.
+                            </p>
+                            <button><a
+                                    href="https://wa.me/5546999834088?text=ol%C3%A1%20gostaria%20de%20saber%20mais%20sobre%20os%20sites."></a>✨
+                                Fazer pedido</button>
+                        </div>
+
+                        <div class="highlight-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="logo-carousel">
+        <div class="container">
+            <div class="logo-track">
+                <img src="php.png">
+                <img src="xam.avif">
+                <img src="css.jpg">
+                <img src="html.png">
+                <img src="js.png">
+
+                <!-- DUPLICADO para loop infinito -->
+                <img src="php.png">
+                <img src="xam.avif">
+                <img src="css.jpg">
+                <img src="html.png">
+                <img src="js.png">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="solutions">
+        <span class="tag">Bem vindo ao</span>
+        <h2>SOBRE</h2>
+
+        <div class="solutions-container">
+            <div class="solutions-text">
+                <h3>Conhecimentos e Estudos</h3>
+                <div class="container">
+                    <h1>Educação</h1>
+
+                    <div class="timeline">
+
+                        <div class="item">
+                            <div class="numero">1</div>
+                            <div class="texto">
+                                <h3>Cursando Instituto</h3>
+                                <p>Instituto Federal do Paraná – Campus Palmas</p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="numero">2</div>
+                            <div class="texto">
+                                <h3>Concluí</h3>
+                                <p>USP curso online (Bolsista)<br>
+                                    Javascript/Scash/Python</p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="numero">3</div>
+                            <div class="texto">
+                                <h3>Certificada.</h3>
+                                <p>Marketing Digital (IA)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="badges">
+                    <span>Programaçao</span>
+                    <span>Logica</span>
+                    <span>Iformatica</span>
+                    <span>Marketing</span>
+                    <span>Certificadas</span>
+
+                </div>
+            </div>
+
+            <div class="solutions-image">
+                <img src="teklefone.png" alt="App educacional">
+            </div>
+        </div>
+    </section>
+
+    <section class="brands">
+        <h2>Marcas que confiam na gente</h2>
+
+        <div class="brands-logos">
+            <img src="bee.png" alt="Marca 1">
+            <img src="logo=ifpr.png" alt="Marca 2">
+            <img src="logoman.png" alt="Marca 3">
+        </div>
+    </section>
+
+
+    <section class="stats-section">
+        <div class="stats-card">
+
+            <div class="stat">
+                <div class="icon">
+                    <i class="bi bi-cart"></i>
+                </div>
+                <div>
+                    <h3>Rendimento</h3>
+                    <p>Qualidade</p>
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="icon">
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+                <div>
+                    <h3>+Baixo</h3>
+                    <p>custo</p>
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="icon">
+                    <i class="bi bi-phone"></i>
+                </div>
+                <div>
+                    <h3>Designer Inovador</h3>
+                    <p>para fazer a diferença na experiência do seu cliente</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>Desenvolper Carolini</h3>
+                <p>
+                    Soluções em hospedagem e tecnologia para impulsionar seu negócio com
+                    performance, segurança e confiabilidade.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Empresa Desenvolper</h4>
+                <ul>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Planos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Central de ajuda</a></li>
+                    <li><a href="#">Documentação</a></li>
+                    <li><a href="#">Status do sistema</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>Email: suporte@hostoo.com</p>
+                <p>WhatsApp: (46) 99834088</p>
+
+                <div class="social">
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Carolini Desenvolper. Todos os direitos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>
